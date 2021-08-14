@@ -30,7 +30,7 @@ jobs:
           java-version: 1.8
 
       - name: 3. Perform build
-        run: chmod +x ./gradlew && ./gradlew build publishToMavenLocal --scan
+        run: chmod +x ./gradlew && ./gradlew build publishToMavenLocal --no-daemon --scan
 
       - name: 4. Perform release
         # Release job, only for pushes to the main development branch
@@ -39,7 +39,7 @@ jobs:
           && github.repository == 'MythicDrops/plumbing'
           && !contains(toJSON(github.event.commits.*.message), '[skip release]')
 
-        run: ./gradlew githubRelease publishToSonatype closeAndReleaseStagingRepository --scan
+        run: ./gradlew githubRelease publishToSonatype closeAndReleaseStagingRepository --no-daemon --scan
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           SONATYPE_USER: ${{secrets.OSSRH_USERNAME}}
