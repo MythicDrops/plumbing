@@ -2,6 +2,8 @@ plugins {
     kotlin("jvm")
 }
 
+description = "NMS and OBC Adapters for 1.16R1 for MythicDrops"
+
 dependencies {
     compileOnly("org.spigotmc:spigot:1.16.3-R0.1-SNAPSHOT")
 

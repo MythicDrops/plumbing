@@ -1,0 +1,46 @@
+public abstract interface class io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractItemAttributes {
+	public abstract fun getDefaultItemAttributes (Lorg/bukkit/inventory/ItemStack;Lorg/bukkit/inventory/EquipmentSlot;)Lcom/google/common/collect/Multimap;
+}
+
+public abstract class io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster {
+	public fun <init> ()V
+	public final fun broadcastItem (Ljava/lang/String;Lorg/bukkit/entity/Player;Lorg/bukkit/inventory/ItemStack;Lnet/kyori/adventure/platform/bukkit/BukkitAudiences;)V
+	public final fun broadcastItem (Ljava/lang/String;Lorg/bukkit/entity/Player;Lorg/bukkit/inventory/ItemStack;Lnet/kyori/adventure/platform/bukkit/BukkitAudiences;Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;)V
+	public abstract fun convertItemStackToJson (Lorg/bukkit/inventory/ItemStack;)Ljava/lang/String;
+}
+
+public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget : java/lang/Enum {
+	public static final field PLAYER Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
+	public static final field SERVER Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
+	public static final field WORLD Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
+	public static fun valueOf (Ljava/lang/String;)Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
+	public static fun values ()[Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
+}
+
+public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/MinecraftVersions {
+	public static final field INSTANCE Lio/pixeloutlaw/minecraft/spigot/plumbing/api/MinecraftVersions;
+	public final fun getNmsVersion ()Ljava/lang/String;
+	public final fun isAtLeastMinecraft113 ()Z
+	public final fun isAtLeastMinecraft114 ()Z
+	public final fun isAtLeastMinecraft115 ()Z
+	public final fun isAtLeastMinecraft116 ()Z
+	public final fun isAtLeastMinecraft117 ()Z
+	public final fun isAtLeastNewerMinecraft116 ()Z
+}
+
+public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/StringsKt {
+	public static final fun chatColorize (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun endsWithAny (Ljava/lang/String;Ljava/util/List;)Z
+	public static final fun endsWithAny (Ljava/lang/String;Ljava/util/List;Z)Z
+	public static synthetic fun endsWithAny$default (Ljava/lang/String;Ljava/util/List;ZILjava/lang/Object;)Z
+	public static final fun replaceArgs (Ljava/lang/String;Ljava/lang/Iterable;)Ljava/lang/String;
+	public static final fun replaceArgs (Ljava/lang/String;[Lkotlin/Pair;)Ljava/lang/String;
+	public static final fun replaceArgs (Ljava/lang/String;[[Ljava/lang/String;)Ljava/lang/String;
+	public static final fun startsWithAny (Ljava/lang/String;Ljava/util/List;)Z
+	public static final fun startsWithAny (Ljava/lang/String;Ljava/util/List;Z)Z
+	public static synthetic fun startsWithAny$default (Ljava/lang/String;Ljava/util/List;ZILjava/lang/Object;)Z
+	public static final fun stripColors (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun toTitleCase (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun unChatColorize (Ljava/lang/String;)Ljava/lang/String;
+}
+

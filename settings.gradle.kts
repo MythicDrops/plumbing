@@ -1,6 +1,13 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
 plugins {
     // See https://jmfayard.github.io/refreshVersions
-    id("de.fayard.refreshVersions") version "0.10.1"
+    id("de.fayard.refreshVersions") version "0.11.0"
+
 }
 
 rootProject.name = "plumbing"
@@ -9,7 +16,6 @@ gradle.allprojects {
     group = "io.pixeloutlaw"
 
     repositories {
-        mavenLocal()
         mavenCentral()
         maven {
             url = uri("https://repo.minebench.de/")
