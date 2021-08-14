@@ -2,8 +2,10 @@ plugins {
     kotlin("jvm")
 }
 
+description = "NMS and OBC Adapter Lib for MythicDrops"
+
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:_")
 
     api(project(":plumbing-api"))
 

@@ -1,11 +1,17 @@
 plugins {
-    kotlin("jvm") version "1.5.20" apply false
-    id("io.pixeloutlaw.gradle")
+    kotlin("jvm") version "1.5.21" apply false
+    id("dev.mythicdrops.gradle.project")
 }
 
 description = "NMS and OBC Adapters for MythicDrops"
 
-subprojects {
-    this@subprojects.description = rootProject.description
-    this@subprojects.version = rootProject.version
+contacts {
+    addPerson("topplethenunnery@gmail.com", closureOf<nebula.plugin.contacts.Contact> {
+        moniker = "ToppleTheNun"
+        github = "ToppleTheNun"
+    })
+}
+
+mythicDropsRelease {
+    repository = "MythicDrops/plumbing"
 }
