@@ -15,6 +15,7 @@ object ItemAttributes {
     }
     private val itemAttributesByServer: AbstractItemAttributes by lazy {
         when (MinecraftVersions.nmsVersion) {
+            "v1_18_R1" -> io.pixeloutlaw.minecraft.spigot.plumbing.v118R1.ItemAttributes
             "v1_17_R1" -> io.pixeloutlaw.minecraft.spigot.plumbing.v117R1.ItemAttributes
             else -> {
                 NoOpItemAttributes()

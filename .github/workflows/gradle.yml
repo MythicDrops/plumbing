@@ -48,6 +48,12 @@ jobs:
         with:
           files: "**/build/reports/jacoco/**/*.xml"
 
+      - name: 5. Perform release
+        # Release job, only for pushes to the main development branch
+        if: github.event_name == 'push'
+          && github.ref == 'refs/heads/main'
+          && github.repository == 'MythicDrops/plumbing'
+          && !contains(toJSON(github.event.commits.*.message), '[skip release]')
         run: ./gradlew githubRelease publishToSonatype closeAndReleaseStagingRepository --no-daemon --scan
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

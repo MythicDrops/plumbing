@@ -31,5 +31,6 @@ gradle.allprojects {
 include(
     "plumbing-api",
     "plumbing-1_17_R1",
+    "plumbing-1_18_R1",
     "plumbing-lib"
 )
