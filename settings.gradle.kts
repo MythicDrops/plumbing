@@ -6,7 +6,7 @@ pluginManagement {
 
 plugins {
     // See https://jmfayard.github.io/refreshVersions
-    id("de.fayard.refreshVersions") version "0.23.0"
+    id("de.fayard.refreshVersions") version "0.40.0"
 }
 
 rootProject.name = "plumbing"
@@ -15,15 +15,16 @@ gradle.allprojects {
     group = "io.pixeloutlaw"
 
     repositories {
+        mavenLocal()
         mavenCentral()
+        maven {
+            url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+        }
         maven {
             url = uri("https://repo.minebench.de/")
         }
         maven {
             url = uri("https://repo.codemc.org/repository/nms")
-        }
-        maven {
-            url = uri("https://oss.sonatype.org/content/repositories/snapshots")
         }
     }
 }

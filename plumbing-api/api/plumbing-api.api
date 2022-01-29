@@ -1,5 +1,5 @@
 public abstract interface class io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractItemAttributes {
-	public abstract fun getDefaultItemAttributes (Lorg/bukkit/inventory/ItemStack;Lorg/bukkit/inventory/EquipmentSlot;)Lcom/google/common/collect/Multimap;
+	public abstract fun cloneWithDefaultAttributes (Lorg/bukkit/inventory/ItemStack;)Lorg/bukkit/inventory/ItemStack;
 }
 
 public abstract class io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster {
