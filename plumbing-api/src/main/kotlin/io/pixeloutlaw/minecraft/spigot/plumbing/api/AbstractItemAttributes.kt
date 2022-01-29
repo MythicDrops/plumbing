@@ -1,9 +1,5 @@
 package io.pixeloutlaw.minecraft.spigot.plumbing.api
 
-import com.google.common.collect.Multimap
-import org.bukkit.attribute.Attribute
-import org.bukkit.attribute.AttributeModifier
-import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemStack
 
 /**
@@ -11,10 +7,7 @@ import org.bukkit.inventory.ItemStack
  */
 interface AbstractItemAttributes {
     /**
-     * Gets the default attribute values for an [ItemStack] in a specific [EquipmentSlot].
+     * Creates a copy of the ItemStack with default attributes.
      */
-    fun getDefaultItemAttributes(
-        itemStack: ItemStack,
-        equipmentSlot: EquipmentSlot
-    ): Multimap<Attribute, AttributeModifier>
+    fun cloneWithDefaultAttributes(itemStack: ItemStack): ItemStack
 }
