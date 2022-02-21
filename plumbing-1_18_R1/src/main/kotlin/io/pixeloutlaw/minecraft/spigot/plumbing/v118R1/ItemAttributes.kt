@@ -13,25 +13,15 @@ import org.bukkit.inventory.meta.ItemMeta
 import java.util.UUID
 import net.minecraft.world.entity.ai.attributes.AttributeModifier as AttributeModifierNms
 
-object ItemAttributes : AbstractItemAttributes {
-    private val availableEquipmentSlots by lazy {
-        EquipmentSlot.values()
+object ItemAttributes : AbstractItemAttributes() {
+    override val availableEquipmentSlots by lazy {
+        EquipmentSlot.values().toList()
     }
-    private val availableAttributes by lazy {
-        Attribute.values()
-    }
-
-    override fun cloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
-        val itemMeta = itemStack.itemMeta ?: return itemStack
-        availableEquipmentSlots.forEach { slot ->
-            handleEquipmentSlot(itemStack, slot, itemMeta)
-        }
-        val cloned = itemStack.clone()
-        cloned.itemMeta = itemMeta
-        return cloned
+    override val availableAttributes by lazy {
+        Attribute.values().toList()
     }
 
-    private fun handleEquipmentSlot(
+    override fun handleEquipmentSlot(
         itemStack: ItemStack,
         slot: EquipmentSlot,
         itemMeta: ItemMeta
@@ -55,6 +45,4 @@ object ItemAttributes : AbstractItemAttributes {
             itemMeta.addAttributeModifier(attr, clonedAttributeModifier)
         }
     }
-
-    private fun attributeFromString(name: String): Attribute? = availableAttributes.find { name.endsWith(it.key.key) }
 }

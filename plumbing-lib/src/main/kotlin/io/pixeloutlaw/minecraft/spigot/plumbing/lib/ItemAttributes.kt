@@ -2,13 +2,12 @@ package io.pixeloutlaw.minecraft.spigot.plumbing.lib
 
 import io.pixeloutlaw.minecraft.spigot.plumbing.api.AbstractItemAttributes
 import io.pixeloutlaw.minecraft.spigot.plumbing.api.MinecraftVersions
+import org.bukkit.attribute.Attribute
 import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemStack
+import org.bukkit.inventory.meta.ItemMeta
 
 object ItemAttributes {
-    private val availableEquipmentSlots by lazy {
-        EquipmentSlot.values()
-    }
     private val itemAttributesByServer: AbstractItemAttributes by lazy {
         when (MinecraftVersions.nmsVersion) {
             "v1_18_R1" -> io.pixeloutlaw.minecraft.spigot.plumbing.v118R1.ItemAttributes
@@ -22,16 +21,34 @@ object ItemAttributes {
      */
     val isSupportedBukkitVersion: Boolean by lazy { MinecraftVersions.isAtLeastMinecraft116 }
 
+    /**
+     * Creates a copy of the ItemStack with default attributes if it doesn't already have
+     * attributes attached.
+     */
+    fun conditionallyCloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
+        if (itemStack.itemMeta?.hasAttributeModifiers() == true) {
+            return itemStack.clone()
+        }
+        return cloneWithDefaultAttributes(itemStack)
+    }
+
+    /**
+     * Creates a copy of the ItemStack with default attributes.
+     */
     fun cloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
         if (!isSupportedBukkitVersion) {
-            return itemStack
+            return itemStack.clone()
         }
         return itemAttributesByServer.cloneWithDefaultAttributes(itemStack)
     }
 
-    internal object NoOpItemAttributes : AbstractItemAttributes {
-        override fun cloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
-            return itemStack
+    internal object NoOpItemAttributes : AbstractItemAttributes() {
+        override val availableAttributes: List<Attribute> = emptyList()
+
+        override val availableEquipmentSlots: List<EquipmentSlot> = emptyList()
+
+        override fun handleEquipmentSlot(itemStack: ItemStack, slot: EquipmentSlot, itemMeta: ItemMeta) {
+            // do nothing
         }
     }
 }
