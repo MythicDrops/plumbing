@@ -14,7 +14,7 @@ contacts {
 }
 
 mythicDropsRelease {
-    repository = "MythicDrops/plumbing"
+    repository.set("MythicDrops/plumbing")
 }
 
 spigotBuildTools {
