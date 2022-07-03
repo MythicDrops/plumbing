@@ -64,7 +64,7 @@ abstract class AbstractMessageBroadcaster {
         val itemStackName = itemStack.getDisplayName() ?: itemStack.type.name.split("_")
             .joinToString(" ").toTitleCase()
         val itemStackAsJson = convertItemStackToJson(itemStack)
-        val nbtBinary = BinaryTagHolder.of(itemStackAsJson)
+        val nbtBinary = BinaryTagHolder.binaryTagHolder(itemStackAsJson)
         val itemStackNameComponent = LegacyComponentSerializer.legacySection().deserialize(itemStackName).hoverEvent(
             HoverEvent.showItem(
                 Key.key(

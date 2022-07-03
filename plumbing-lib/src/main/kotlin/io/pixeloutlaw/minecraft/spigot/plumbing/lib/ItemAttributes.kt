@@ -10,6 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta
 object ItemAttributes {
     private val itemAttributesByServer: AbstractItemAttributes by lazy {
         when (MinecraftVersions.nmsVersion) {
+            "v1_19_R1" -> io.pixeloutlaw.minecraft.spigot.plumbing.v119R1.ItemAttributes
             "v1_18_R2" -> io.pixeloutlaw.minecraft.spigot.plumbing.v118R2.ItemAttributes
             "v1_18_R1" -> io.pixeloutlaw.minecraft.spigot.plumbing.v118R1.ItemAttributes
             "v1_17_R1" -> io.pixeloutlaw.minecraft.spigot.plumbing.v117R1.ItemAttributes
@@ -20,7 +21,7 @@ object ItemAttributes {
     /**
      * Returns `true` if the version of bukkit
      */
-    val isSupportedBukkitVersion: Boolean by lazy { MinecraftVersions.isAtLeastMinecraft116 }
+    val isSupportedBukkitVersion: Boolean by lazy { MinecraftVersions.isAtLeastMinecraft117 }
 
     /**
      * Creates a copy of the ItemStack with default attributes if it doesn't already have
