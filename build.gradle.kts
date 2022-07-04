@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.6.10" apply false
+    kotlin("jvm") version "1.7.0" apply false
     id("dev.mythicdrops.gradle.project")
     id("io.pixeloutlaw.spigot.build")
 }
@@ -19,5 +19,5 @@ mythicDropsRelease {
 
 spigotBuildTools {
     skipExistingVersions = true
-    versions = listOf("1.17.1", "1.18.1", "1.18.2")
+    versions = listOf("1.17.1", "1.18.1", "1.18.2", "1.19")
 }
