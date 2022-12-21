@@ -6,7 +6,7 @@ pluginManagement {
 
 plugins {
     // See https://jmfayard.github.io/refreshVersions
-    id("de.fayard.refreshVersions") version "0.40.2"
+    id("de.fayard.refreshVersions") version "0.51.0"
 }
 
 rootProject.name = "plumbing"
@@ -35,5 +35,6 @@ include(
     "plumbing-1_18_R1",
     "plumbing-1_18_R2",
     "plumbing-1_19_R1",
+    "plumbing-1_19_R2",
     "plumbing-lib"
 )
