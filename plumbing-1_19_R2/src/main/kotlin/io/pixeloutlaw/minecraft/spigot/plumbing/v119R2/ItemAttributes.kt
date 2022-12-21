@@ -1,12 +1,12 @@
-package io.pixeloutlaw.minecraft.spigot.plumbing.v119R1
+package io.pixeloutlaw.minecraft.spigot.plumbing.v119R2
 
 import io.pixeloutlaw.minecraft.spigot.plumbing.api.AbstractItemAttributes
 import net.minecraft.world.entity.ai.attributes.AttributeBase
 import org.bukkit.attribute.Attribute
 import org.bukkit.attribute.AttributeModifier
-import org.bukkit.craftbukkit.v1_19_R1.CraftEquipmentSlot
-import org.bukkit.craftbukkit.v1_19_R1.attribute.CraftAttributeInstance
-import org.bukkit.craftbukkit.v1_19_R1.inventory.CraftItemStack
+import org.bukkit.craftbukkit.v1_19_R2.CraftEquipmentSlot
+import org.bukkit.craftbukkit.v1_19_R2.attribute.CraftAttributeInstance
+import org.bukkit.craftbukkit.v1_19_R2.inventory.CraftItemStack
 import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta

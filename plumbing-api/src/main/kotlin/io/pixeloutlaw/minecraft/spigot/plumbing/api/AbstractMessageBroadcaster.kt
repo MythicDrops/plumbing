@@ -38,7 +38,7 @@ abstract class AbstractMessageBroadcaster {
         format: String,
         player: Player,
         itemStack: ItemStack,
-        bukkitAudiences: BukkitAudiences,
+        bukkitAudiences: BukkitAudiences
     ) = broadcastItem(format, player, itemStack, bukkitAudiences, BroadcastTarget.SERVER)
 
     /**
@@ -55,7 +55,7 @@ abstract class AbstractMessageBroadcaster {
         player: Player,
         itemStack: ItemStack,
         bukkitAudiences: BukkitAudiences,
-        target: BroadcastTarget,
+        target: BroadcastTarget
     ) {
         val displayName = player.displayName
         val locale = format.replaceArgs("%player%" to displayName).chatColorize()
@@ -71,7 +71,8 @@ abstract class AbstractMessageBroadcaster {
                     itemStack.type.key.namespace,
                     itemStack.type.key.key
                 ),
-                itemStack.amount, nbtBinary
+                itemStack.amount,
+                nbtBinary
             )
         )
         messages.indices.forEach { idx ->
