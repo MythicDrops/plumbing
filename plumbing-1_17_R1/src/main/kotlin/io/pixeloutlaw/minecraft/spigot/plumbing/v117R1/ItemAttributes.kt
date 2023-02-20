@@ -24,7 +24,7 @@ object ItemAttributes : AbstractItemAttributes() {
     override fun handleEquipmentSlot(
         itemStack: ItemStack,
         slot: EquipmentSlot,
-        itemMeta: ItemMeta
+        itemMeta: ItemMeta,
     ) {
         CraftItemStack.asNMSCopy(itemStack).a(CraftEquipmentSlot.getNMS(slot)).asMap().entries.forEach { entry ->
             updateItemMeta(entry, itemMeta, slot)
@@ -34,7 +34,7 @@ object ItemAttributes : AbstractItemAttributes() {
     private fun updateItemMeta(
         entry: MutableMap.MutableEntry<AttributeBase, MutableCollection<AttributeModifierNms>>,
         itemMeta: ItemMeta,
-        slot: EquipmentSlot
+        slot: EquipmentSlot,
     ) {
         val attr: Attribute = attributeFromString(entry.key.name) ?: return
         entry.value.forEach { nmsMod ->
