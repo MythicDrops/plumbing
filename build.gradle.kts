@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.7.20" apply false
+    kotlin("jvm") version "1.8.10" apply false
     id("dev.mythicdrops.gradle.project")
     id("io.pixeloutlaw.spigot.build")
 }

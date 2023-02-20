@@ -30,7 +30,7 @@ abstract class AbstractItemAttributes {
     abstract fun handleEquipmentSlot(
         itemStack: ItemStack,
         slot: EquipmentSlot,
-        itemMeta: ItemMeta
+        itemMeta: ItemMeta,
     )
 
     protected fun attributeFromString(name: String): Attribute? = availableAttributes.find { name.endsWith(it.key.key) }

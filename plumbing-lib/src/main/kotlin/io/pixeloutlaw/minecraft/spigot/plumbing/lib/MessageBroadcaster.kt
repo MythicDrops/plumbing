@@ -43,7 +43,7 @@ object MessageBroadcaster {
         player: Player,
         itemStack: ItemStack,
         bukkitAudiences: BukkitAudiences,
-        target: AbstractMessageBroadcaster.BroadcastTarget
+        target: AbstractMessageBroadcaster.BroadcastTarget,
     ) {
         if (!isSupportedBukkitVersion) return // do nothing for unsupported bukkit versions
         if (broadcasterByServer is NoOpMessageBroadcaster) return // do nothing for NoOp message broadcaster
@@ -52,7 +52,7 @@ object MessageBroadcaster {
 
     internal class NoOpMessageBroadcaster : AbstractMessageBroadcaster() {
         override fun convertItemStackToJson(itemStack: ItemStack): String {
-            throw IllegalStateException("Should never be invoked")
+            error("Should never be invoked")
         }
     }
 }

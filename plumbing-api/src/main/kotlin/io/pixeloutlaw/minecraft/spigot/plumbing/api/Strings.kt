@@ -31,7 +31,7 @@ private val chatColorReplacementMap = ChatColor.values().flatMap {
         "<${it.name.replace("_", " ")}>" to it,
         "<${it.name.replace("_", "")}>" to it,
         it.toString().uppercase(Locale.getDefault()).replace(ChatColor.COLOR_CHAR, '&') to it,
-        it.toString().lowercase(Locale.getDefault()).replace(ChatColor.COLOR_CHAR, '&') to it
+        it.toString().lowercase(Locale.getDefault()).replace(ChatColor.COLOR_CHAR, '&') to it,
     )
 }.toMap()
 private val whiteSpaceRegex = "\\s+".toRegex()
@@ -43,6 +43,7 @@ private val whiteSpaceRegex = "\\s+".toRegex()
  * @param args Pairs of arguments to replace
  * @return copy of [String] with arguments replaced
  */
+@Deprecated("Use the Iterable based version instead")
 fun String.replaceArgs(args: Array<Array<String>>): String =
     args.filter { it.size >= 2 }.fold(this) { acc, strings -> acc.replace(strings[0], strings[1]) }
 
@@ -52,6 +53,7 @@ fun String.replaceArgs(args: Array<Array<String>>): String =
  * @param args Pairs of arguments to replace
  * @return copy of [String] with arguments replaced
  */
+@Deprecated("Use the Iterable based version instead")
 fun String.replaceArgs(vararg args: Pair<String, String>): String =
     args.fold(this) { acc, pair -> acc.replace(pair.first, pair.second) }
 

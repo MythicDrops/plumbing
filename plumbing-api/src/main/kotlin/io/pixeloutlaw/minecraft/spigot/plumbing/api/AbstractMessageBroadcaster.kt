@@ -20,7 +20,7 @@ abstract class AbstractMessageBroadcaster {
     enum class BroadcastTarget {
         SERVER,
         WORLD,
-        PLAYER
+        PLAYER,
     }
 
     /**
@@ -38,7 +38,7 @@ abstract class AbstractMessageBroadcaster {
         format: String,
         player: Player,
         itemStack: ItemStack,
-        bukkitAudiences: BukkitAudiences
+        bukkitAudiences: BukkitAudiences,
     ) = broadcastItem(format, player, itemStack, bukkitAudiences, BroadcastTarget.SERVER)
 
     /**
@@ -55,10 +55,10 @@ abstract class AbstractMessageBroadcaster {
         player: Player,
         itemStack: ItemStack,
         bukkitAudiences: BukkitAudiences,
-        target: BroadcastTarget
+        target: BroadcastTarget,
     ) {
         val displayName = player.displayName
-        val locale = format.replaceArgs("%player%" to displayName).chatColorize()
+        val locale = format.replaceArgs(listOf("%player%" to displayName)).chatColorize()
         val messages = locale.split("%item%")
         var broadcastComponent = Component.empty()
         val itemStackName = itemStack.getDisplayName() ?: itemStack.type.name.split("_")
@@ -69,11 +69,11 @@ abstract class AbstractMessageBroadcaster {
             HoverEvent.showItem(
                 Key.key(
                     itemStack.type.key.namespace,
-                    itemStack.type.key.key
+                    itemStack.type.key.key,
                 ),
                 itemStack.amount,
-                nbtBinary
-            )
+                nbtBinary,
+            ),
         )
         messages.indices.forEach { idx ->
             val key = messages[idx]
@@ -89,11 +89,13 @@ abstract class AbstractMessageBroadcaster {
                     bukkitAudiences.player(it).sendMessage(broadcastComponent)
                 }
             }
+
             BroadcastTarget.WORLD -> {
                 player.world.players.forEach {
                     bukkitAudiences.player(it).sendMessage(broadcastComponent)
                 }
             }
+
             BroadcastTarget.PLAYER -> {
                 bukkitAudiences.player(player).sendMessage(broadcastComponent)
             }
