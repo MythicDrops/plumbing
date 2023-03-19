@@ -7,7 +7,7 @@ pluginManagement {
 plugins {
     // See https://jmfayard.github.io/refreshVersions
     id("de.fayard.refreshVersions") version "0.51.0"
-    id("com.gradle.enterprise") version "3.12.3"
+    id("com.gradle.enterprise") version "3.12.4"
 }
 
 gradleEnterprise {
@@ -44,5 +44,6 @@ include(
     "plumbing-1_18_R2",
     "plumbing-1_19_R1",
     "plumbing-1_19_R2",
+    "plumbing-1_19_R3",
     "plumbing-lib"
 )

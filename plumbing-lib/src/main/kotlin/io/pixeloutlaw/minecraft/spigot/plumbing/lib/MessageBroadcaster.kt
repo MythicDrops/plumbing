@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack
 object MessageBroadcaster {
     private val broadcasterByServer: AbstractMessageBroadcaster by lazy {
         when (MinecraftVersions.nmsVersion) {
+            "v1_19_R3" -> io.pixeloutlaw.minecraft.spigot.plumbing.v119R3.MessageBroadcaster
             "v1_19_R2" -> io.pixeloutlaw.minecraft.spigot.plumbing.v119R2.MessageBroadcaster
             "v1_19_R1" -> io.pixeloutlaw.minecraft.spigot.plumbing.v119R1.MessageBroadcaster
             "v1_18_R2" -> io.pixeloutlaw.minecraft.spigot.plumbing.v118R2.MessageBroadcaster

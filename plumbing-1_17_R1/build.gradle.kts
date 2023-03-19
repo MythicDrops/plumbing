@@ -9,6 +9,6 @@ dependencies {
 
     api(project(":plumbing-api"))
 
-    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("stdlib"))
     implementation("io.pixeloutlaw:kindling:_")
 }
