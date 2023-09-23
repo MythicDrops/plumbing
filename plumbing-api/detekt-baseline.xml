@@ -2,6 +2,7 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
+    <ID>MaxLineLength:Strings.kt$fun</ID>
     <ID>SwallowedException:MinecraftVersions.kt$MinecraftVersions$ex: ClassNotFoundException</ID>
   </CurrentIssues>
 </SmellBaseline>

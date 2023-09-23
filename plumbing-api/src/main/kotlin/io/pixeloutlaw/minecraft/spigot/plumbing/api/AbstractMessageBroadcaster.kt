@@ -61,20 +61,22 @@ abstract class AbstractMessageBroadcaster {
         val locale = format.replaceArgs(listOf("%player%" to displayName)).chatColorize()
         val messages = locale.split("%item%")
         var broadcastComponent = Component.empty()
-        val itemStackName = itemStack.getDisplayName() ?: itemStack.type.name.split("_")
-            .joinToString(" ").toTitleCase()
+        val itemStackName =
+            itemStack.getDisplayName() ?: itemStack.type.name.split("_")
+                .joinToString(" ").toTitleCase()
         val itemStackAsJson = convertItemStackToJson(itemStack)
         val nbtBinary = BinaryTagHolder.binaryTagHolder(itemStackAsJson)
-        val itemStackNameComponent = LegacyComponentSerializer.legacySection().deserialize(itemStackName).hoverEvent(
-            HoverEvent.showItem(
-                Key.key(
-                    itemStack.type.key.namespace,
-                    itemStack.type.key.key,
+        val itemStackNameComponent =
+            LegacyComponentSerializer.legacySection().deserialize(itemStackName).hoverEvent(
+                HoverEvent.showItem(
+                    Key.key(
+                        itemStack.type.key.namespace,
+                        itemStack.type.key.key,
+                    ),
+                    itemStack.amount,
+                    nbtBinary,
                 ),
-                itemStack.amount,
-                nbtBinary,
-            ),
-        )
+            )
         messages.indices.forEach { idx ->
             val key = messages[idx]
             broadcastComponent = broadcastComponent.append(LegacyComponentSerializer.legacyAmpersand().deserialize(key))
@@ -104,11 +106,12 @@ abstract class AbstractMessageBroadcaster {
 
     abstract fun convertItemStackToJson(itemStack: ItemStack): String
 
-    private fun ItemStack.getDisplayName(): String? = this.itemMeta?.let {
-        return if (it.hasDisplayName()) {
-            it.displayName
-        } else {
-            null
+    private fun ItemStack.getDisplayName(): String? =
+        this.itemMeta?.let {
+            return if (it.hasDisplayName()) {
+                it.displayName
+            } else {
+                null
+            }
         }
-    }
 }

@@ -10,6 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta
 object ItemAttributes {
     private val itemAttributesByServer: AbstractItemAttributes by lazy {
         when (MinecraftVersions.nmsVersion) {
+            "v1_20_R2" -> io.pixeloutlaw.minecraft.spigot.plumbing.v120R2.ItemAttributes
             "v1_20_R1" -> io.pixeloutlaw.minecraft.spigot.plumbing.v120R1.ItemAttributes
             "v1_19_R3" -> io.pixeloutlaw.minecraft.spigot.plumbing.v119R3.ItemAttributes
             "v1_19_R2" -> io.pixeloutlaw.minecraft.spigot.plumbing.v119R2.ItemAttributes
@@ -52,7 +53,11 @@ object ItemAttributes {
 
         override val availableEquipmentSlots: List<EquipmentSlot> = emptyList()
 
-        override fun handleEquipmentSlot(itemStack: ItemStack, slot: EquipmentSlot, itemMeta: ItemMeta) {
+        override fun handleEquipmentSlot(
+            itemStack: ItemStack,
+            slot: EquipmentSlot,
+            itemMeta: ItemMeta,
+        ) {
             // do nothing
         }
     }
