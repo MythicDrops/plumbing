@@ -18,6 +18,7 @@ public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageB
 	public static final field PLAYER Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
 	public static final field SERVER Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
 	public static final field WORLD Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
 	public static fun values ()[Lio/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster$BroadcastTarget;
 }
@@ -30,6 +31,8 @@ public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/MinecraftVersion
 	public final fun isAtLeastMinecraft115 ()Z
 	public final fun isAtLeastMinecraft116 ()Z
 	public final fun isAtLeastMinecraft117 ()Z
+	public final fun isAtLeastMinecraft119 ()Z
+	public final fun isAtLeastMinecraft120 ()Z
 	public final fun isAtLeastNewerMinecraft116 ()Z
 }
 

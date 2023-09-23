@@ -12,6 +12,24 @@ object MinecraftVersions {
         Bukkit.getServer().javaClass.`package`.name.split(".")[THIRD_DOT]
     }
 
+    val isAtLeastMinecraft120 by lazy {
+        try {
+            Class.forName("org.bukkit.block.data.Hatchable")
+            true
+        } catch (ex: ClassNotFoundException) {
+            false
+        }
+    }
+
+    val isAtLeastMinecraft119 by lazy {
+        try {
+            Class.forName("org.bukkit.block.SculkCatalyst")
+            true
+        } catch (ex: ClassNotFoundException) {
+            false
+        }
+    }
+
     /**
      * Returns true if the Axolotl interface exists, which means we're in 1.17+.
      */

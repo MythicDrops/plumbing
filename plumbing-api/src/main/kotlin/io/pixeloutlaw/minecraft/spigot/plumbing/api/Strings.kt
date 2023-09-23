@@ -25,15 +25,16 @@ package io.pixeloutlaw.minecraft.spigot.plumbing.api
 import org.bukkit.ChatColor
 import java.util.Locale
 
-private val chatColorReplacementMap = ChatColor.values().flatMap {
-    listOf(
-        "<${it.name}>" to it,
-        "<${it.name.replace("_", " ")}>" to it,
-        "<${it.name.replace("_", "")}>" to it,
-        it.toString().uppercase(Locale.getDefault()).replace(ChatColor.COLOR_CHAR, '&') to it,
-        it.toString().lowercase(Locale.getDefault()).replace(ChatColor.COLOR_CHAR, '&') to it,
-    )
-}.toMap()
+private val chatColorReplacementMap =
+    ChatColor.values().flatMap {
+        listOf(
+            "<${it.name}>" to it,
+            "<${it.name.replace("_", " ")}>" to it,
+            "<${it.name.replace("_", "")}>" to it,
+            it.toString().uppercase(Locale.getDefault()).replace(ChatColor.COLOR_CHAR, '&') to it,
+            it.toString().lowercase(Locale.getDefault()).replace(ChatColor.COLOR_CHAR, '&') to it,
+        )
+    }.toMap()
 private val whiteSpaceRegex = "\\s+".toRegex()
 
 /**
@@ -54,8 +55,7 @@ fun String.replaceArgs(args: Array<Array<String>>): String =
  * @return copy of [String] with arguments replaced
  */
 @Deprecated("Use the Iterable based version instead")
-fun String.replaceArgs(vararg args: Pair<String, String>): String =
-    args.fold(this) { acc, pair -> acc.replace(pair.first, pair.second) }
+fun String.replaceArgs(vararg args: Pair<String, String>): String = args.fold(this) { acc, pair -> acc.replace(pair.first, pair.second) }
 
 /**
  * Replaces all arguments (first item in pair) with their values (second item in pair).
@@ -63,8 +63,7 @@ fun String.replaceArgs(vararg args: Pair<String, String>): String =
  * @param args Pairs of arguments to replace
  * @return copy of [String] with arguments replaced
  */
-fun String.replaceArgs(args: Iterable<Pair<String, String>>): String =
-    args.fold(this) { acc, pair -> acc.replace(pair.first, pair.second) }
+fun String.replaceArgs(args: Iterable<Pair<String, String>>): String = args.fold(this) { acc, pair -> acc.replace(pair.first, pair.second) }
 
 /**
  * Replaces all ampersands with [ChatColor.COLOR_CHAR] and all instances of two [ChatColor.COLOR_CHAR] with ampersands.
@@ -86,7 +85,10 @@ fun String.stripColors(): String = ChatColor.stripColor(this)!! // using double 
  * Returns true if the String starts with any of the provided [list].
  */
 @JvmOverloads
-fun String.startsWithAny(list: List<String>, ignoreCase: Boolean = false): Boolean {
+fun String.startsWithAny(
+    list: List<String>,
+    ignoreCase: Boolean = false,
+): Boolean {
     return list.any { this.startsWith(it, ignoreCase) }
 }
 
@@ -94,7 +96,10 @@ fun String.startsWithAny(list: List<String>, ignoreCase: Boolean = false): Boole
  * Returns true if the String ends with any of the provided [list].
  */
 @JvmOverloads
-fun String.endsWithAny(list: List<String>, ignoreCase: Boolean = false): Boolean {
+fun String.endsWithAny(
+    list: List<String>,
+    ignoreCase: Boolean = false,
+): Boolean {
     return list.any { this.endsWith(it, ignoreCase) }
 }
 
