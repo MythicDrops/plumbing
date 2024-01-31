@@ -13,11 +13,11 @@ import org.bukkit.inventory.ItemStack
 /**
  * Allows broadcasting messages on a Spigot server.
  */
-abstract class AbstractMessageBroadcaster {
+public abstract class AbstractMessageBroadcaster {
     /**
      * To whom should the broadcast be sent?
      */
-    enum class BroadcastTarget {
+    public enum class BroadcastTarget {
         SERVER,
         WORLD,
         PLAYER,
@@ -34,12 +34,12 @@ abstract class AbstractMessageBroadcaster {
      * @param player Player to reference
      * @param itemStack ItemStack to reference
      */
-    fun broadcastItem(
+    public fun broadcastItem(
         format: String,
         player: Player,
         itemStack: ItemStack,
         bukkitAudiences: BukkitAudiences,
-    ) = broadcastItem(format, player, itemStack, bukkitAudiences, BroadcastTarget.SERVER)
+    ): Unit = broadcastItem(format, player, itemStack, bukkitAudiences, BroadcastTarget.SERVER)
 
     /**
      * Broadcasts a message about the player and item using the given format. Replaces "%player%" with the player's
@@ -50,7 +50,7 @@ abstract class AbstractMessageBroadcaster {
      * @param itemStack ItemStack to reference
      * @param target Who should see the broadcast
      */
-    fun broadcastItem(
+    public fun broadcastItem(
         format: String,
         player: Player,
         itemStack: ItemStack,
@@ -104,7 +104,7 @@ abstract class AbstractMessageBroadcaster {
         }
     }
 
-    abstract fun convertItemStackToJson(itemStack: ItemStack): String
+    public abstract fun convertItemStackToJson(itemStack: ItemStack): String
 
     private fun ItemStack.getDisplayName(): String? =
         this.itemMeta?.let {

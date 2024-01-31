@@ -26,7 +26,7 @@ import org.bukkit.ChatColor
 import java.util.Locale
 
 private val chatColorReplacementMap =
-    ChatColor.values().flatMap {
+    ChatColor.entries.flatMap {
         listOf(
             "<${it.name}>" to it,
             "<${it.name.replace("_", " ")}>" to it,
@@ -38,54 +38,35 @@ private val chatColorReplacementMap =
 private val whiteSpaceRegex = "\\s+".toRegex()
 
 /**
- * Replaces all arguments (first item in pair) with their values (second item in pair). Ignores arrays where
- * there are less than two items.
- *
- * @param args Pairs of arguments to replace
- * @return copy of [String] with arguments replaced
- */
-@Deprecated("Use the Iterable based version instead")
-fun String.replaceArgs(args: Array<Array<String>>): String =
-    args.filter { it.size >= 2 }.fold(this) { acc, strings -> acc.replace(strings[0], strings[1]) }
-
-/**
  * Replaces all arguments (first item in pair) with their values (second item in pair).
  *
  * @param args Pairs of arguments to replace
  * @return copy of [String] with arguments replaced
  */
-@Deprecated("Use the Iterable based version instead")
-fun String.replaceArgs(vararg args: Pair<String, String>): String = args.fold(this) { acc, pair -> acc.replace(pair.first, pair.second) }
-
-/**
- * Replaces all arguments (first item in pair) with their values (second item in pair).
- *
- * @param args Pairs of arguments to replace
- * @return copy of [String] with arguments replaced
- */
-fun String.replaceArgs(args: Iterable<Pair<String, String>>): String = args.fold(this) { acc, pair -> acc.replace(pair.first, pair.second) }
+public fun String.replaceArgs(args: Iterable<Pair<String, String>>): String =
+    args.fold(this) { acc, pair -> acc.replace(pair.first, pair.second) }
 
 /**
  * Replaces all ampersands with [ChatColor.COLOR_CHAR] and all instances of two [ChatColor.COLOR_CHAR] with ampersands.
  */
-fun String.chatColorize(): String =
+public fun String.chatColorize(): String =
     chatColorReplacementMap.entries.fold(this) { acc, entry -> acc.replace(entry.key, entry.value.toString()) }
 
 /**
  * Replaces all [ChatColor.COLOR_CHAR] with ampersands.
  */
-fun String.unChatColorize(): String = this.replace('\u00A7', '&')
+public fun String.unChatColorize(): String = this.replace('\u00A7', '&')
 
 /**
  * Strips the colors from the String.
  */
-fun String.stripColors(): String = ChatColor.stripColor(this)!! // using double bangs because `this` cannot be null
+public fun String.stripColors(): String = ChatColor.stripColor(this)!! // using double bangs because `this` cannot be null
 
 /**
  * Returns true if the String starts with any of the provided [list].
  */
 @JvmOverloads
-fun String.startsWithAny(
+public fun String.startsWithAny(
     list: List<String>,
     ignoreCase: Boolean = false,
 ): Boolean {
@@ -96,7 +77,7 @@ fun String.startsWithAny(
  * Returns true if the String ends with any of the provided [list].
  */
 @JvmOverloads
-fun String.endsWithAny(
+public fun String.endsWithAny(
     list: List<String>,
     ignoreCase: Boolean = false,
 ): Boolean {
@@ -108,7 +89,7 @@ fun String.endsWithAny(
  *
  * Example: "a boy went to the park".toTitleCase() == "A Boy Went To The Park"
  */
-fun String.toTitleCase(): String {
+public fun String.toTitleCase(): String {
     return split(whiteSpaceRegex).joinToString(separator = " ") {
         if (it.length > 1) {
             "${it.substring(0, 1).uppercase(Locale.getDefault())}${it.substring(1).lowercase(Locale.getDefault())}"

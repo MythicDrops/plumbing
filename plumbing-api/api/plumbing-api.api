@@ -26,14 +26,9 @@ public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageB
 public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/MinecraftVersions {
 	public static final field INSTANCE Lio/pixeloutlaw/minecraft/spigot/plumbing/api/MinecraftVersions;
 	public final fun getNmsVersion ()Ljava/lang/String;
-	public final fun isAtLeastMinecraft113 ()Z
-	public final fun isAtLeastMinecraft114 ()Z
-	public final fun isAtLeastMinecraft115 ()Z
-	public final fun isAtLeastMinecraft116 ()Z
 	public final fun isAtLeastMinecraft117 ()Z
 	public final fun isAtLeastMinecraft119 ()Z
 	public final fun isAtLeastMinecraft120 ()Z
-	public final fun isAtLeastNewerMinecraft116 ()Z
 }
 
 public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/StringsKt {
@@ -42,8 +37,6 @@ public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/StringsKt {
 	public static final fun endsWithAny (Ljava/lang/String;Ljava/util/List;Z)Z
 	public static synthetic fun endsWithAny$default (Ljava/lang/String;Ljava/util/List;ZILjava/lang/Object;)Z
 	public static final fun replaceArgs (Ljava/lang/String;Ljava/lang/Iterable;)Ljava/lang/String;
-	public static final fun replaceArgs (Ljava/lang/String;[Lkotlin/Pair;)Ljava/lang/String;
-	public static final fun replaceArgs (Ljava/lang/String;[[Ljava/lang/String;)Ljava/lang/String;
 	public static final fun startsWithAny (Ljava/lang/String;Ljava/util/List;)Z
 	public static final fun startsWithAny (Ljava/lang/String;Ljava/util/List;Z)Z
 	public static synthetic fun startsWithAny$default (Ljava/lang/String;Ljava/util/List;ZILjava/lang/Object;)Z

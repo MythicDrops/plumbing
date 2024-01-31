@@ -7,7 +7,7 @@ import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
 
-object ItemAttributes {
+public object ItemAttributes {
     private val itemAttributesByServer: AbstractItemAttributes by lazy {
         when (MinecraftVersions.nmsVersion) {
             "v1_20_R2" -> io.pixeloutlaw.minecraft.spigot.plumbing.v120R2.ItemAttributes
@@ -25,13 +25,13 @@ object ItemAttributes {
     /**
      * Returns `true` if the version of bukkit
      */
-    val isSupportedBukkitVersion: Boolean by lazy { MinecraftVersions.isAtLeastMinecraft117 }
+    public val isSupportedBukkitVersion: Boolean by lazy { MinecraftVersions.isAtLeastMinecraft117 }
 
     /**
      * Creates a copy of the ItemStack with default attributes if it doesn't already have
      * attributes attached.
      */
-    fun conditionallyCloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
+    public fun conditionallyCloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
         if (itemStack.itemMeta?.hasAttributeModifiers() == true) {
             return itemStack.clone()
         }
@@ -41,7 +41,7 @@ object ItemAttributes {
     /**
      * Creates a copy of the ItemStack with default attributes.
      */
-    fun cloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
+    public fun cloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
         if (!isSupportedBukkitVersion) {
             return itemStack.clone()
         }

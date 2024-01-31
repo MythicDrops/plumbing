@@ -8,15 +8,15 @@ import org.bukkit.inventory.meta.ItemMeta
 /**
  * Utility for getting default attributes from items.
  */
-abstract class AbstractItemAttributes {
-    abstract val availableAttributes: List<Attribute>
+public abstract class AbstractItemAttributes {
+    public abstract val availableAttributes: List<Attribute>
 
-    abstract val availableEquipmentSlots: List<EquipmentSlot>
+    public abstract val availableEquipmentSlots: List<EquipmentSlot>
 
     /**
      * Creates a copy of the ItemStack with default attributes.
      */
-    fun cloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
+    public fun cloneWithDefaultAttributes(itemStack: ItemStack): ItemStack {
         val originalItemMeta = itemStack.itemMeta ?: return itemStack.clone()
         val itemMeta = originalItemMeta.clone()
         availableEquipmentSlots.forEach { slot ->
@@ -27,7 +27,7 @@ abstract class AbstractItemAttributes {
         return cloned
     }
 
-    abstract fun handleEquipmentSlot(
+    public abstract fun handleEquipmentSlot(
         itemStack: ItemStack,
         slot: EquipmentSlot,
         itemMeta: ItemMeta,
