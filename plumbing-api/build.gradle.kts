@@ -13,6 +13,7 @@ dependencies {
     api("net.kyori:adventure-platform-bukkit:_")
 
     implementation(kotlin("stdlib"))
+    implementation("io.pixeloutlaw:kindling:_")
     implementation("net.kyori:adventure-text-serializer-gson:_") {
         exclude(group = "com.google.code.gson", module = "gson")
     }

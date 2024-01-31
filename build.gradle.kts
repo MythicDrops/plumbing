@@ -1,7 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.10" apply false
     id("dev.mythicdrops.gradle.project")
-    id("io.pixeloutlaw.spigot.build")
 }
 
 description = "NMS and OBC Adapters for MythicDrops"
@@ -15,9 +14,4 @@ contacts {
 
 mythicDropsRelease {
     repository.set("MythicDrops/plumbing")
-}
-
-spigotBuildTools {
-    skipExistingVersions = true
-    versions = listOf("1.17.1", "1.18.1", "1.18.2", "1.19.2", "1.19.3", "1.19.4", "1.20.1", "1.20.2")
 }

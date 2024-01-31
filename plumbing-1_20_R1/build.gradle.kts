@@ -3,12 +3,16 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 plugins {
     kotlin("jvm")
     id("org.jetbrains.kotlinx.binary-compatibility-validator")
+    id("dev.mythicdrops.gradle.spigot.build")
 }
 
-description = "NMS and OBC Adapters for 1.20R1 for MythicDrops"
+val minecraftVersion = "1.20.1"
+val obcVersion = "v1_20_R1"
+
+description = "NMS and OBC Adapters for $obcVersion for MythicDrops"
 
 dependencies {
-    compileOnly("org.spigotmc:spigot:1.20.1-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot:$minecraftVersion-R0.1-SNAPSHOT:remapped-mojang")
 
     api(project(":plumbing-api"))
 
@@ -22,4 +26,9 @@ kotlin {
         languageVersion.set(KotlinVersion.KOTLIN_2_0)
     }
     explicitApi()
+}
+
+spigotBuildTools {
+    includeRemapped.set(true)
+    version.set(minecraftVersion)
 }

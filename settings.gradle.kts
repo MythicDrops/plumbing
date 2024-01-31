@@ -6,7 +6,7 @@ pluginManagement {
 
 plugins {
     // See https://jmfayard.github.io/refreshVersions
-    id("de.fayard.refreshVersions") version "0.60.3"
+    id("de.fayard.refreshVersions") version "0.60.5"
     id("com.gradle.enterprise") version "3.16.2"
 }
 
@@ -51,5 +51,6 @@ include(
     "plumbing-1_20_R1",
     "plumbing-1_20_R2",
     "plumbing-1_20_R3",
-    "plumbing-lib"
+    "plumbing-lib",
+    "plumbing-test-plugin"
 )
