@@ -1,0 +1,12 @@
+public final class io/pixeloutlaw/minecraft/spigot/plumbing/v119R3/ItemAttributes : io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractItemAttributes {
+	public static final field INSTANCE Lio/pixeloutlaw/minecraft/spigot/plumbing/v119R3/ItemAttributes;
+	public fun getAvailableAttributes ()Ljava/util/List;
+	public fun getAvailableEquipmentSlots ()Ljava/util/List;
+	public fun handleEquipmentSlot (Lorg/bukkit/inventory/ItemStack;Lorg/bukkit/inventory/EquipmentSlot;Lorg/bukkit/inventory/meta/ItemMeta;)V
+}
+
+public final class io/pixeloutlaw/minecraft/spigot/plumbing/v119R3/MessageBroadcaster : io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractMessageBroadcaster {
+	public static final field INSTANCE Lio/pixeloutlaw/minecraft/spigot/plumbing/v119R3/MessageBroadcaster;
+	public fun convertItemStackToJson (Lorg/bukkit/inventory/ItemStack;)Ljava/lang/String;
+}
+

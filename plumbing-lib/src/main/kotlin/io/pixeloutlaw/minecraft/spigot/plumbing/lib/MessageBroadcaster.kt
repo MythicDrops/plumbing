@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack
 /**
  * Utility for broadcasting messages about [ItemStack]s.
  */
-object MessageBroadcaster {
+public object MessageBroadcaster {
     private val broadcasterByServer: AbstractMessageBroadcaster by lazy {
         when (MinecraftVersions.nmsVersion) {
             "v1_20_R2" -> io.pixeloutlaw.minecraft.spigot.plumbing.v120R2.MessageBroadcaster
@@ -27,7 +27,7 @@ object MessageBroadcaster {
     /**
      * Returns `true` if the version of bukkit
      */
-    val isSupportedBukkitVersion: Boolean by lazy { MinecraftVersions.isAtLeastMinecraft115 }
+    public val isSupportedBukkitVersion: Boolean by lazy { MinecraftVersions.isAtLeastMinecraft117 }
 
     /**
      * Broadcasts a message about the player and item using the given format. Replaces "%player%" with the player's
@@ -39,7 +39,7 @@ object MessageBroadcaster {
      * @param bukkitAudiences Adventure context to use
      * @param target Who should see the broadcast
      */
-    fun broadcastItem(
+    public fun broadcastItem(
         format: String,
         player: Player,
         itemStack: ItemStack,

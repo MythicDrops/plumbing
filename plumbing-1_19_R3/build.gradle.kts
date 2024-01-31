@@ -1,5 +1,8 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
 plugins {
     kotlin("jvm")
+    id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
 description = "NMS and OBC Adapters for 1.19R3 for MythicDrops"
@@ -11,4 +14,12 @@ dependencies {
 
     implementation(kotlin("stdlib"))
     implementation("io.pixeloutlaw:kindling:_")
+}
+
+kotlin {
+    compilerOptions {
+        apiVersion.set(KotlinVersion.KOTLIN_2_0)
+        languageVersion.set(KotlinVersion.KOTLIN_2_0)
+    }
+    explicitApi()
 }

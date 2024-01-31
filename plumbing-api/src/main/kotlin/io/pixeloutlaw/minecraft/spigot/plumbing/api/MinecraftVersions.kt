@@ -5,14 +5,14 @@ import org.bukkit.Bukkit
 /**
  * Utility for determining which version of Minecraft is in use.
  */
-object MinecraftVersions {
+public object MinecraftVersions {
     private const val THIRD_DOT = 3
 
-    val nmsVersion: String by lazy {
+    public val nmsVersion: String by lazy {
         Bukkit.getServer().javaClass.`package`.name.split(".")[THIRD_DOT]
     }
 
-    val isAtLeastMinecraft120 by lazy {
+    public val isAtLeastMinecraft120: Boolean by lazy {
         try {
             Class.forName("org.bukkit.block.data.Hatchable")
             true
@@ -21,7 +21,7 @@ object MinecraftVersions {
         }
     }
 
-    val isAtLeastMinecraft119 by lazy {
+    public val isAtLeastMinecraft119: Boolean by lazy {
         try {
             Class.forName("org.bukkit.block.SculkCatalyst")
             true
@@ -33,70 +33,9 @@ object MinecraftVersions {
     /**
      * Returns true if the Axolotl interface exists, which means we're in 1.17+.
      */
-    val isAtLeastMinecraft117 by lazy {
+    public val isAtLeastMinecraft117: Boolean by lazy {
         try {
             Class.forName("org.bukkit.entity.Axolotl")
-            true
-        } catch (ex: ClassNotFoundException) {
-            false
-        }
-    }
-
-    /**
-     * Returns true if the PrepareSmithingEvent class exists, which means we're in 1.16+ and a newer version
-     * of 1.16+.
-     */
-    val isAtLeastNewerMinecraft116 by lazy {
-        try {
-            Class.forName("org.bukkit.event.inventory.PrepareSmithingEvent")
-            true
-        } catch (ex: ClassNotFoundException) {
-            false
-        }
-    }
-
-    /**
-     * Returns true if the Piglin interface exists, which means we're in 1.16+.
-     */
-    val isAtLeastMinecraft116 by lazy {
-        try {
-            Class.forName("org.bukkit.entity.Piglin")
-            true
-        } catch (ex: ClassNotFoundException) {
-            false
-        }
-    }
-
-    /**
-     * Returns true if the PersistentDataHolder interface exists, which means we're in 1.15+.
-     */
-    val isAtLeastMinecraft115 by lazy {
-        try {
-            Class.forName("org.bukkit.persistence.PersistentDataHolder")
-            true
-        } catch (ex: ClassNotFoundException) {
-            false
-        }
-    }
-
-    /**
-     * Returns true if the GrindstoneInventory interface exists, which means we're in 1.14+.
-     */
-    val isAtLeastMinecraft114 by lazy {
-        try {
-            Class.forName("org.bukkit.inventory.GrindstoneInventory")
-            true
-        } catch (ex: ClassNotFoundException) {
-            false
-        }
-    }
-
-    /**
-     * Returns true if the Damageable interface exists, which means we're in 1.13+.
-     */
-    val isAtLeastMinecraft113 by lazy {
-        try {
-            Class.forName("org.bukkit.inventory.meta.Damageable")
             true
         } catch (ex: ClassNotFoundException) {
             false

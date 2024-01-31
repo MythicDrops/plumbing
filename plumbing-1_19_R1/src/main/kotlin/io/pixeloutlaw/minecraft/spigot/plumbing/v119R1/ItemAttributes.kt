@@ -13,12 +13,12 @@ import org.bukkit.inventory.meta.ItemMeta
 import java.util.UUID
 import net.minecraft.world.entity.ai.attributes.AttributeModifier as AttributeModifierNms
 
-object ItemAttributes : AbstractItemAttributes() {
-    override val availableEquipmentSlots by lazy {
-        EquipmentSlot.values().toList()
+public object ItemAttributes : AbstractItemAttributes() {
+    override val availableEquipmentSlots: List<EquipmentSlot> by lazy {
+        EquipmentSlot.entries
     }
-    override val availableAttributes by lazy {
-        Attribute.values().toList()
+    override val availableAttributes: List<Attribute> by lazy {
+        Attribute.entries
     }
 
     override fun handleEquipmentSlot(
