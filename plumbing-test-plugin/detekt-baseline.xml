@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>DestructuringDeclarationWithTooManyEntries:PlumbingLogger.kt$PlumbingLogger$val (level, tag, message, throwable) = logRecord</ID>
+    <ID>ImplicitDefaultLocale:PlumbingJavaPlugin.kt$PlumbingJavaPlugin$String.format( "%s/%s.log", dataFolder.absolutePath, this@PlumbingJavaPlugin.name.lowercase(Locale.getDefault()), )</ID>
+    <ID>MaxLineLength:PlumbingJavaPlugin.kt$PlumbingJavaPlugin.&lt;no name provided>$event.player.inventory.addItem(ItemAttributes.cloneWithDefaultAttributes(ItemStack(Material.DIAMOND_SWORD)))</ID>
+    <ID>MaxLineLength:PlumbingJavaPlugin.kt$PlumbingJavaPlugin.&lt;no name provided>$event.player.inventory.addItem(ItemStack(Material.DIAMOND_SWORD).also { it.addEnchantment(glowEnchantment, 1) })</ID>
+    <ID>ReturnCount:PlumbingJavaPlugin.kt$PlumbingJavaPlugin$override fun onEnable()</ID>
+    <ID>ThrowingExceptionsWithoutMessageOrCause:PlumbingLogger.kt$PlumbingLogger$Exception()</ID>
+    <ID>TooGenericExceptionCaught:PlumbingJavaPlugin.kt$PlumbingJavaPlugin$ex: Exception</ID>
+  </CurrentIssues>
+</SmellBaseline>

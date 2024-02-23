@@ -1,3 +1,8 @@
+public abstract class io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractGlowEnchantment {
+	public fun <init> ()V
+	public abstract fun getEnchantment ()Lorg/bukkit/enchantments/Enchantment;
+}
+
 public abstract class io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractItemAttributes {
 	public fun <init> ()V
 	protected final fun attributeFromString (Ljava/lang/String;)Lorg/bukkit/attribute/Attribute;
@@ -29,6 +34,42 @@ public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/MinecraftVersion
 	public final fun isAtLeastMinecraft117 ()Z
 	public final fun isAtLeastMinecraft119 ()Z
 	public final fun isAtLeastMinecraft120 ()Z
+}
+
+public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/Reflection {
+	public static final field INSTANCE Lio/pixeloutlaw/minecraft/spigot/plumbing/api/Reflection;
+	public final fun getFields (Ljava/lang/Class;)Lio/pixeloutlaw/minecraft/spigot/plumbing/api/Reflection$CheckingFieldMap;
+}
+
+public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/Reflection$CheckingFieldMap : java/util/HashMap {
+	public fun <init> (Ljava/lang/Class;)V
+	public final fun containsKey (Ljava/lang/Object;)Z
+	public fun containsKey (Ljava/lang/String;)Z
+	public final fun containsValue (Ljava/lang/Object;)Z
+	public fun containsValue (Ljava/lang/reflect/Field;)Z
+	public final fun entrySet ()Ljava/util/Set;
+	public final synthetic fun get (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun get (Ljava/lang/Object;)Ljava/lang/reflect/Field;
+	public fun get (Ljava/lang/String;)Ljava/lang/reflect/Field;
+	public final fun get (Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/reflect/Field;
+	public final fun getClazz ()Ljava/lang/Class;
+	public fun getEntries ()Ljava/util/Set;
+	public final fun getFirstOfType (Ljava/lang/Class;)Ljava/lang/reflect/Field;
+	public fun getKeys ()Ljava/util/Set;
+	public final fun getNoCheck (Ljava/lang/String;)Ljava/lang/reflect/Field;
+	public final synthetic fun getOrDefault (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun getOrDefault (Ljava/lang/Object;Ljava/lang/reflect/Field;)Ljava/lang/reflect/Field;
+	public fun getOrDefault (Ljava/lang/String;Ljava/lang/reflect/Field;)Ljava/lang/reflect/Field;
+	public fun getSize ()I
+	public fun getValues ()Ljava/util/Collection;
+	public final fun keySet ()Ljava/util/Set;
+	public final synthetic fun remove (Ljava/lang/Object;)Ljava/lang/Object;
+	public final fun remove (Ljava/lang/Object;)Ljava/lang/reflect/Field;
+	public final fun remove (Ljava/lang/Object;Ljava/lang/Object;)Z
+	public fun remove (Ljava/lang/String;)Ljava/lang/reflect/Field;
+	public fun remove (Ljava/lang/String;Ljava/lang/reflect/Field;)Z
+	public final fun size ()I
+	public final fun values ()Ljava/util/Collection;
 }
 
 public final class io/pixeloutlaw/minecraft/spigot/plumbing/api/StringsKt {

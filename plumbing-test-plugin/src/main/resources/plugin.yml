@@ -1,0 +1,7 @@
+main: io.pixeloutlaw.minecraft.spigot.plumbing.plugin.PlumbingJavaPlugin
+name: Plumbing
+version: ${project.version}
+load: STARTUP
+authors:
+  - ToppleTheNun
+api-version: 1.20

@@ -1,0 +1,6 @@
+public final class io/pixeloutlaw/minecraft/spigot/plumbing/plugin/PlumbingJavaPlugin : org/bukkit/plugin/java/JavaPlugin {
+	public fun <init> ()V
+	public fun onDisable ()V
+	public fun onEnable ()V
+}
+

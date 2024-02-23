@@ -1,3 +1,8 @@
+public final class io/pixeloutlaw/minecraft/spigot/plumbing/lib/GlowEnchantment : io/pixeloutlaw/minecraft/spigot/plumbing/api/AbstractGlowEnchantment {
+	public static final field INSTANCE Lio/pixeloutlaw/minecraft/spigot/plumbing/lib/GlowEnchantment;
+	public fun getEnchantment ()Lorg/bukkit/enchantments/Enchantment;
+}
+
 public final class io/pixeloutlaw/minecraft/spigot/plumbing/lib/ItemAttributes {
 	public static final field INSTANCE Lio/pixeloutlaw/minecraft/spigot/plumbing/lib/ItemAttributes;
 	public final fun cloneWithDefaultAttributes (Lorg/bukkit/inventory/ItemStack;)Lorg/bukkit/inventory/ItemStack;
