@@ -7,13 +7,25 @@ pluginManagement {
 plugins {
     // See https://jmfayard.github.io/refreshVersions
     id("de.fayard.refreshVersions") version "0.60.5"
-    id("com.gradle.enterprise") version "3.16.2"
+    id("com.gradle.develocity") version "3.17.4"
+    id("org.gradle.toolchains.foojay-resolver") version "0.8.0"
 }
 
-gradleEnterprise {
+develocity {
     buildScan {
-        termsOfServiceUrl = "https://gradle.com/terms-of-service"
-        termsOfServiceAgree = "yes"
+        publishing.onlyIf { it.buildResult.failures.isNotEmpty() && !System.getenv("CI").isNullOrEmpty() }
+        termsOfUseUrl = "https://gradle.com/terms-of-service"
+        termsOfUseAgree = "yes"
+    }
+}
+
+toolchainManagement {
+    jvm {
+        javaRepositories {
+            repository("foojay") {
+                resolverClass.set(org.gradle.toolchains.foojay.FoojayToolchainResolver::class.java)
+            }
+        }
     }
 }
 

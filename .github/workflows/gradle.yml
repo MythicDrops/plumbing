@@ -29,7 +29,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: [ gradle_wrapper_validation ]
-    if: "! contains(toJSON(github.event.commits.*.message), '[skip ci]')"
     permissions:
       contents: write
       issues: write
@@ -50,10 +49,7 @@ jobs:
         uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3
 
       - name: Perform Build via Gradle
-        run: ./gradlew build --scan
-
-      - name: Publish to Maven Local via Gradle
-        run: ./gradlew publishToMavenLocal --scan
+        run: ./gradlew build publishToMavenLocal
 
       - name: Upload CodeCov Report
         uses: codecov/codecov-action@ab904c41d6ece82784817410c45d8b8c02684457 # v3
@@ -66,7 +62,7 @@ jobs:
           && github.ref == 'refs/heads/main'
           && github.repository == 'MythicDrops/plumbing'
           && !contains(toJSON(github.event.commits.*.message), '[skip release]')
-        run: ./gradlew githubRelease publishToSonatype closeAndReleaseStagingRepository --scan
+        run: ./gradlew githubRelease publishToSonatype closeAndReleaseStagingRepositories --scan
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           SONATYPE_USER: ${{secrets.OSSRH_USERNAME}}
